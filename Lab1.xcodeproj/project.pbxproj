@@ -57,9 +57,17 @@
 		9DD42BA926EFCC0800ED1178 /* Lab1 */ = {
 			isa = PBXGroup;
 			children = (
-				9DD42BAA26EFCC0800ED1178 /* main.c */,
+				9DD42BB126EFD45600ED1178 /* hello */,
 			);
 			path = Lab1;
+			sourceTree = "<group>";
+		};
+		9DD42BB126EFD45600ED1178 /* hello */ = {
+			isa = PBXGroup;
+			children = (
+				9DD42BAA26EFCC0800ED1178 /* main.c */,
+			);
+			path = hello;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
