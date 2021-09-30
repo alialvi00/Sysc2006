@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D2A15602706269100087101 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A155F2706269100087101 /* main.c */; };
+		9D2A1579270627B100087101 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A1578270627B100087101 /* main.c */; };
+		9D2A1582270627FE00087101 /* power.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A157F270627FE00087101 /* power.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9D2A155A2706269100087101 /* CopyFiles */ = {
+		9D2A1573270627B100087101 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +24,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9D2A155C2706269100087101 /* Lab2Part1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab2Part1; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D2A155F2706269100087101 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9D2A1575270627B100087101 /* Lab2Part1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab2Part1; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2A1578270627B100087101 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9D2A157F270627FE00087101 /* power.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = power.c; sourceTree = "<group>"; };
+		9D2A1580270627FE00087101 /* power.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = power.h; sourceTree = "<group>"; };
+		9D2A1581270627FE00087101 /* sput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sput.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9D2A15592706269100087101 /* Frameworks */ = {
+		9D2A1572270627B100087101 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,26 +42,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9D2A15532706269100087101 = {
+		9D2A156C270627B100087101 = {
 			isa = PBXGroup;
 			children = (
-				9D2A155E2706269100087101 /* Lab2Part1 */,
-				9D2A155D2706269100087101 /* Products */,
+				9D2A1577270627B100087101 /* Lab2Part1 */,
+				9D2A1576270627B100087101 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9D2A155D2706269100087101 /* Products */ = {
+		9D2A1576270627B100087101 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D2A155C2706269100087101 /* Lab2Part1 */,
+				9D2A1575270627B100087101 /* Lab2Part1 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D2A155E2706269100087101 /* Lab2Part1 */ = {
+		9D2A1577270627B100087101 /* Lab2Part1 */ = {
 			isa = PBXGroup;
 			children = (
-				9D2A155F2706269100087101 /* main.c */,
+				9D2A157F270627FE00087101 /* power.c */,
+				9D2A1580270627FE00087101 /* power.h */,
+				9D2A1581270627FE00087101 /* sput.h */,
+				9D2A1578270627B100087101 /* main.c */,
 			);
 			path = Lab2Part1;
 			sourceTree = "<group>";
@@ -65,13 +72,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9D2A155B2706269100087101 /* Lab2Part1 */ = {
+		9D2A1574270627B100087101 /* Lab2Part1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D2A15632706269100087101 /* Build configuration list for PBXNativeTarget "Lab2Part1" */;
+			buildConfigurationList = 9D2A157C270627B100087101 /* Build configuration list for PBXNativeTarget "Lab2Part1" */;
 			buildPhases = (
-				9D2A15582706269100087101 /* Sources */,
-				9D2A15592706269100087101 /* Frameworks */,
-				9D2A155A2706269100087101 /* CopyFiles */,
+				9D2A1571270627B100087101 /* Sources */,
+				9D2A1572270627B100087101 /* Frameworks */,
+				9D2A1573270627B100087101 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -79,23 +86,23 @@
 			);
 			name = Lab2Part1;
 			productName = Lab2Part1;
-			productReference = 9D2A155C2706269100087101 /* Lab2Part1 */;
+			productReference = 9D2A1575270627B100087101 /* Lab2Part1 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9D2A15542706269100087101 /* Project object */ = {
+		9D2A156D270627B100087101 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					9D2A155B2706269100087101 = {
+					9D2A1574270627B100087101 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
-			buildConfigurationList = 9D2A15572706269100087101 /* Build configuration list for PBXProject "Lab2Part1" */;
+			buildConfigurationList = 9D2A1570270627B100087101 /* Build configuration list for PBXProject "Lab2Part1" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -103,29 +110,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 9D2A15532706269100087101;
-			productRefGroup = 9D2A155D2706269100087101 /* Products */;
+			mainGroup = 9D2A156C270627B100087101;
+			productRefGroup = 9D2A1576270627B100087101 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D2A155B2706269100087101 /* Lab2Part1 */,
+				9D2A1574270627B100087101 /* Lab2Part1 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9D2A15582706269100087101 /* Sources */ = {
+		9D2A1571270627B100087101 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2A15602706269100087101 /* main.c in Sources */,
+				9D2A1579270627B100087101 /* main.c in Sources */,
+				9D2A1582270627FE00087101 /* power.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9D2A15612706269100087101 /* Debug */ = {
+		9D2A157A270627B100087101 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,7 +192,7 @@
 			};
 			name = Debug;
 		};
-		9D2A15622706269100087101 /* Release */ = {
+		9D2A157B270627B100087101 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -236,7 +244,7 @@
 			};
 			name = Release;
 		};
-		9D2A15642706269100087101 /* Debug */ = {
+		9D2A157D270627B100087101 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -246,7 +254,7 @@
 			};
 			name = Debug;
 		};
-		9D2A15652706269100087101 /* Release */ = {
+		9D2A157E270627B100087101 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -259,25 +267,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D2A15572706269100087101 /* Build configuration list for PBXProject "Lab2Part1" */ = {
+		9D2A1570270627B100087101 /* Build configuration list for PBXProject "Lab2Part1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D2A15612706269100087101 /* Debug */,
-				9D2A15622706269100087101 /* Release */,
+				9D2A157A270627B100087101 /* Debug */,
+				9D2A157B270627B100087101 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D2A15632706269100087101 /* Build configuration list for PBXNativeTarget "Lab2Part1" */ = {
+		9D2A157C270627B100087101 /* Build configuration list for PBXNativeTarget "Lab2Part1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D2A15642706269100087101 /* Debug */,
-				9D2A15652706269100087101 /* Release */,
+				9D2A157D270627B100087101 /* Debug */,
+				9D2A157E270627B100087101 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9D2A15542706269100087101 /* Project object */;
+	rootObject = 9D2A156D270627B100087101 /* Project object */;
 }
