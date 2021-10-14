@@ -8,7 +8,7 @@
 /* Print fraction f in the form a/b. */
 void print_fraction(fraction_t f)
 {
-	printf("This function should print fraction f in the form a/b.");
+	printf("%d/%d",f.num,f.den);
 }
 
 /* Return the greatest common divisor of integers a and b; 
@@ -17,9 +17,16 @@ void print_fraction(fraction_t f)
 */
 int gcd(int a, int b)
 {
-	/* Euclid's algorithm, using iteration and calculation of remainders. */
-
-	return -1;
+    int q = abs(a);
+    int p = abs(b);
+    float r = q%p;
+    
+    while(r != 0){
+        q = p;
+        p = r;
+        r = q%p;
+    }
+	return p;
 }
 
 /* Return the reduced form of fraction f.
@@ -41,7 +48,21 @@ int gcd(int a, int b)
 */
 fraction_t reduce(fraction_t f)
 { 
-	f = (fraction_t) {0, 0};
+	f = (fraction_t) {f.num, f.den};
+    
+    
+    int common_divider = gcd(f.num, f.den);
+    f.num /= common_divider; //reduced numerator
+    f.den /= common_divider; //reduced denominator
+    
+    if(f.num == 0){
+        f.den = 1;
+    }
+    if((f.num<0 && f.den<0) || (f.num>0 && f.den<0)){
+        f.num *= -1;
+        f.den = abs(f.den); //always positive
+    }
+    
     return f;
 }
 
@@ -53,8 +74,13 @@ fraction_t reduce(fraction_t f)
 */
 fraction_t make_fraction(int a, int b)
 {
-	fraction_t f = {0, 0};
-    return f;
+    if(b == 0){
+        exit(0);
+    }
+    
+    fraction_t f = {a,b};
+    fraction_t reduced_form = reduce(f);
+    return reduced_form;
 }
 
 /* Return the sum of fractions f1 and f2.
@@ -63,7 +89,12 @@ fraction_t make_fraction(int a, int b)
  */
 fraction_t add_fractions(fraction_t f1, fraction_t f2)
 {
-	return make_fraction(0, 0);
+    //sum of fractions is (ad+bc)/bd
+    int ad = f1.num*f2.den;
+    int bc = f1.den*f2.num;
+    int bd = f1.den*f2.den;
+    
+	return make_fraction(ad+bc, bd);
 }
 
 /* Return the product of fractions f1 and f2.
@@ -72,5 +103,7 @@ fraction_t add_fractions(fraction_t f1, fraction_t f2)
  */
 fraction_t multiply_fractions(fraction_t f1, fraction_t f2)
 {
-	return make_fraction(0, 0);
+	int num = f1.num*f2.num;
+    int den = f1.den*f2.den;
+    return make_fraction(num, den);
 }
