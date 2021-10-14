@@ -1,6 +1,9 @@
 /* SYSC 2006 Lab 2, Part 2.
  *
- * Incomplete implementations of the functions that will be coded during the lab. 
+ * Incomplete implementations of the functions that will be coded during the lab.
+ *
+ * Name: Ali Alvi
+ * Student Number: 101114940
  */
 
 #include <stdlib.h>
