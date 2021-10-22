@@ -1,5 +1,8 @@
 /* fraction.c - SYSC 2006 Lab 5 */
 
+//Student Name: Ali Alvi
+//Student Number: 101114940
+
 #include <stdlib.h>  // abs(x)
 #include <stdio.h>   // printf
 #include <assert.h>  // assert
@@ -10,7 +13,7 @@
  */
 void print_fraction(const fraction_t *pf)
 {
-	printf("This function should print the fraction pointed to by pf");
+	printf("%d/%d",pf->num,pf->den);
 }
 
 /* Return the greatest common divisor of integers a and b; 
@@ -21,7 +24,16 @@ int gcd(int a, int b)
 {
 	/* Euclid's algorithm, using iteration and calculation of remainders. */
 
-	return -1;
+    int q = abs(a);
+    int p = abs(b);
+    float r = q%p;
+    
+    while(r != 0){
+        q = p;
+        p = r;
+        r = q%p;
+    }
+    return p;
 }
 
 /* Convert the fraction pointed to by pf to reduced form.
@@ -43,6 +55,18 @@ int gcd(int a, int b)
 */
 void reduce(fraction_t *pf)
 {
+    
+    int common_divider = gcd(pf->num, pf->den);
+    pf->num /= common_divider; //reduced numerator
+    pf->den /= common_divider; //reduced denominator
+    
+    if(pf->num == 0){
+        pf->den = 1;
+    }
+    if((pf->num<0 && pf->den<0) || (pf->num>0 && pf->den<0)){
+        pf->num *= -1;
+        pf->den = abs(pf->den); //always positive
+    }
 }
 
 /* Initialize the fraction pointed to by new_fraction 
@@ -54,6 +78,13 @@ void reduce(fraction_t *pf)
 */
 void make_fraction(int a, int b, fraction_t *new_fraction)
 {
+    if(b == 0){
+        exit(0);
+    }
+    
+    new_fraction->num=a;
+    new_fraction->den=b;
+    reduce(new_fraction);
 }
 
 /* Initialize the fraction pointed to by sum with the sum of 
@@ -63,6 +94,12 @@ void make_fraction(int a, int b, fraction_t *new_fraction)
 */
 void add_fractions(const fraction_t *pf1, const fraction_t *pf2, fraction_t *sum)
 {
+    //sum of fractions is (ad+bc)/bd
+    int ad = pf1->num*pf2->den;
+    int bc = pf1->den*pf2->num;
+    int bd = pf1->den*pf2->den;
+    
+    make_fraction(ad+bc, bd,sum);
 }
 
 /* Initialize the fraction pointed to by product with the product of 
@@ -73,4 +110,8 @@ void add_fractions(const fraction_t *pf1, const fraction_t *pf2, fraction_t *sum
 void multiply_fractions(const fraction_t *pf1, const fraction_t *pf2, 
 	                    fraction_t *product)
 {
+    int ac = pf1->num*pf2->num;
+    int bd = pf1->den*pf2->den;
+    
+    make_fraction(ac, bd, product);
 }
