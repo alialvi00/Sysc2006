@@ -1,5 +1,8 @@
 /* fraction.c - SYSC 2006 Lab 4 */
 
+//Name: Ali Alvi
+//Student Number: 101114940
+
 #include <stdlib.h>  // abs(x)
 #include <stdio.h>   // printf
 
