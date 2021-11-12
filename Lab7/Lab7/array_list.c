@@ -1,4 +1,4 @@
-/* SYSC 2006 Lab 6
+/* SYSC 2006 Lab 7
  *
  * array_list.c
  *
