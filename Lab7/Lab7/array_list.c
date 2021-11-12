@@ -156,6 +156,9 @@ void intlist_removeall(intlist_t *list)
 /* SYSC 2006 Lab 7
  *
  * additional_functions.c
+ *
+ * Student Number: 101114940
+ * Student Name: Ali Alvi
  */
 
 /* Return the index (position) of the first occurrence of an integer
