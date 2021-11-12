@@ -70,9 +70,10 @@ void intlist_print(const intlist_t *list)
     }
 }
 
-/* Insert element at the end of the list pointed to by list.
- * Return true if element is appended; otherwise return false
- * (which indicates that the list is full.)
+/* Insert element at the end of the list pointed to by parameter
+ * list, and return true.
+ * If the list is full, double the list's capacity before inserting
+ * the element.
  * Terminate the program via assert if list is NULL.
  */
 _Bool intlist_append(intlist_t *list, int element)
@@ -80,13 +81,11 @@ _Bool intlist_append(intlist_t *list, int element)
     assert(list != NULL);
     
     if(list->size==list->capacity){ //if list is full
-        return false;
+        increase_capacity(list, list->capacity*2);
     }
-    else{
-        list->elems[list->size] = element; //add element to the end of the list
-        list->size += 1; //increase the size
-        return true;
-    }
+    list->elems[list->size] = element; //add element to the end of the list
+    list->size += 1; //increase the size
+    return true;
 }
 
 /* Return the maximum number of integers that can be stored in the list 
@@ -153,3 +152,90 @@ void intlist_removeall(intlist_t *list)
     }
     list->size=0;
 }
+
+/* SYSC 2006 Lab 7
+ *
+ * additional_functions.c
+ */
+
+/* Return the index (position) of the first occurrence of an integer
+ * equal to target in the list pointed to by parameter list.
+ * Return -1 if target is not in the list.
+ * Terminate the program via assert if list is NULL.
+ */
+int intlist_index(const intlist_t *list, int target)
+{
+    assert(list != NULL);
+    
+    for(int i=0;i<list->size;i++){
+        if(list->elems[i] == target)
+            return i;
+    }
+    return -1;
+}
+
+/* Count the number of integers that are equal to target, in the list
+ * pointed to by parameter list, and return that number.
+ * Terminate the program via assert if list is NULL.
+ */
+int intlist_count(const intlist_t *list, int target)
+{
+    assert(list != NULL);
+    
+    int occurences = 0;
+    
+    for(int i=0; i<list->size;i++){
+        if(list->elems[i] == target)
+            occurences++;
+    }
+    return occurences;
+}
+
+/* Determine if an integer in the list pointed to by parameter list
+ * is equal to target.
+ * Return true if target is in the list, otherwise return false.
+ * Terminate the program via assert if list is NULL.
+ */
+_Bool intlist_contains(const intlist_t *list, int target)
+{
+    assert(list != NULL);
+    
+    for(int i=0; i<list->size;i++){
+        if(list->elems[i] == target)
+            return true;
+    }
+    return false;
+}
+
+/* Increase the capacity of the list pointed to by parameter list to
+ * the specified new capacity.
+ * Terminate the program via assert if new_capacity is not greater than the
+ * list's current capacity, or if the memory required to increase the
+ * list's capacity cannot be allocated.
+ */
+void increase_capacity(intlist_t *list, int new_capacity)
+{
+    assert(list != NULL);
+    assert(new_capacity > list->capacity);
+    
+    list->capacity = new_capacity;
+    int *new_elems = malloc(sizeof(int) * list->capacity);
+    assert(new_elems != NULL);
+    for(int i=0;i<list->size;i++){
+        new_elems[i] = list->elems[i];
+    }
+    free(list->elems);
+    list->elems = new_elems;
+}
+
+/* Delete the integer at the specified position in the list pointed
+ * to by parameter list.
+ * Parameter index is the position of the integer that should be removed.
+ * Terminate the program via assert if list is NULL, or if index
+ * is not in the range 0 .. intlist_size() - 1.
+
+ */
+void intlist_delete(intlist_t *list, int index)
+{
+}
+

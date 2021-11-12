@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9DE07666273DE29C0008C304 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DE07665273DE29C0008C304 /* main.c */; };
-		9DE07670273DE2DE0008C304 /* additional_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DE0766D273DE2DE0008C304 /* additional_functions.c */; };
 		9DE07673273DE37F0008C304 /* array_list.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DE07672273DE37F0008C304 /* array_list.c */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		9DE07662273DE29C0008C304 /* Lab7 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab7; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE07665273DE29C0008C304 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9DE0766C273DE2DE0008C304 /* array_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array_list.h; sourceTree = "<group>"; };
-		9DE0766D273DE2DE0008C304 /* additional_functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = additional_functions.c; sourceTree = "<group>"; };
 		9DE0766E273DE2DE0008C304 /* sput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sput.h; sourceTree = "<group>"; };
 		9DE07672273DE37F0008C304 /* array_list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = array_list.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				9DE07672273DE37F0008C304 /* array_list.c */,
-				9DE0766D273DE2DE0008C304 /* additional_functions.c */,
 				9DE0766C273DE2DE0008C304 /* array_list.h */,
 				9DE0766E273DE2DE0008C304 /* sput.h */,
 				9DE07665273DE29C0008C304 /* main.c */,
@@ -129,7 +126,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DE07670273DE2DE0008C304 /* additional_functions.c in Sources */,
 				9DE07666273DE29C0008C304 /* main.c in Sources */,
 				9DE07673273DE37F0008C304 /* array_list.c in Sources */,
 			);
