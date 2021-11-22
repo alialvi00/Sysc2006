@@ -196,7 +196,7 @@ void test_index(void)
     printf("Calling index with list: ");
     print_list(empty);
     printf("\nSearching for 1.\n");
-    posn = index(empty, 1);
+    posn = ind(empty, 1);
     printf("Expected result: -1\n");
     printf("Actual result: %d\n\n", posn);
 
@@ -205,42 +205,42 @@ void test_index(void)
     printf("Calling index with list: ");
     print_list(head);
     printf("\nSearching for 1.\n");
-    posn = index(head, 1);
+    posn = ind(head, 1);
     printf("Expected result: 0\n");
     printf("Actual result: %d\n\n", posn);
 
     printf("Calling index with list: ");
     print_list(head);
     printf("\nSearching for 2.\n");
-    posn = index(head, 2);
+    posn = ind(head, 2);
     printf("Expected result: 2\n");
     printf("Actual result: %d\n\n", posn);
 
     printf("Calling index with list: ");
     print_list(head);
     printf("\nSearching for 3.\n");
-    posn = index(head, 3);
+    posn = ind(head, 3);
     printf("Expected result: 3\n");
     printf("Actual result: %d\n\n", posn);
 
     printf("Calling index with list: ");
     print_list(head);
     printf("\nSearching for 4.\n");
-    posn = index(head, 4);
+    posn = ind(head, 4);
     printf("Expected result: 5\n");
     printf("Actual result: %d\n\n", posn);
 
     printf("Calling index with list: ");
     print_list(head);
     printf("\nSearching for 5.\n");
-    posn = index(head, 5);
+    posn = ind(head, 5);
     printf("Expected result: 6\n");
     printf("Actual result: %d\n\n", posn);
 
     printf("Calling index with list: ");
     print_list(head);
     printf("\nSearching for 7.\n");
-    posn = index(head, 7);
+    posn = ind(head, 7);
     printf("Expected result: -1\n");
     printf("Actual result: %d\n\n", posn);
 
@@ -267,7 +267,7 @@ void test_extend(void)
     printf("\nother list: ");
     print_list(second);
     printf("\n");
-    extend(first, second);
+    ext(first, second);
     printf("Expected list after extend: 1 -> 2 -> 3 -> 4\n");
     printf("Actual list after extend:   ");
     print_list(first);
@@ -293,7 +293,7 @@ void test_extend(void)
     printf("\nother list: ");
     print_list(second);
     printf("\n");
-    extend(first, second);
+    ext(first, second);
     printf("Expected list after extend: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8\n");
     printf("Actual list after extend:   ");
     print_list(first);

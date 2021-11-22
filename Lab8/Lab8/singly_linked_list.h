@@ -19,6 +19,6 @@ void print_list(intnode_t *head);
 
 int count(intnode_t *head, int target);
 int max(intnode_t *head);
-int index(intnode_t *head, int target);
-void extend(intnode_t *head, intnode_t *other);
+int ind(intnode_t *head, int target);
+void ext(intnode_t *head, intnode_t *other);
 intnode_t *pop(intnode_t *head, int *popped_value);

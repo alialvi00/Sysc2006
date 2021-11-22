@@ -1,5 +1,9 @@
 /* SYSC 2006 Lab 8
-   A module that implements a singly-linked list of integers. 
+   A module that implements a singly-linked list of integers.
+ 
+ *
+ * Student Name: Ali Alvi
+ * Student Number: 101114940
  */
 
 #include <assert.h>  // assert
@@ -106,7 +110,19 @@ void print_list(intnode_t *head)
  */ 
 int count(intnode_t *head, int target)
 {
-    return -1;
+    int count = 0; //Default count is 0
+    
+    if(head == NULL){ //Check if list is empty
+        return 0;
+    }
+    intnode_t *curr;
+    
+    for(curr=head; curr != NULL; curr = curr->next){ //iterate through the list
+        if(curr->value == target){ //if node value equal to target
+            count++;
+        }
+    }
+    return count; //return count
 } 
 
 // Exercise 2
@@ -120,7 +136,18 @@ int count(intnode_t *head, int target)
  */
 int max(intnode_t *head)
 {
-    return -1;
+    assert(head != NULL);
+    intnode_t *curr = head;
+    
+    int largestInteger = 0;
+    
+    while(curr != NULL){
+        if(curr->value > largestInteger){
+            largestInteger = curr->value;
+        }
+        curr = curr->next;
+    }
+    return largestInteger;
 }
 
 
@@ -136,9 +163,22 @@ int max(intnode_t *head)
  * Return -1 if target is not in the linked list, or if the linked list
  * is empty.
  */
-int index(intnode_t *head, int target)
+int ind(intnode_t *head, int target)
 {
-    return -2;
+    if(head == NULL){
+        return -1;
+    }
+    int index = 0;
+    
+    intnode_t *curr;
+    
+    for(curr=head; curr != NULL; curr = curr->next){ //iterate through the list
+        if(curr->value == target){ //if node value equal to target
+            return index;
+        }
+        index++;
+    }
+    return -1;
 }
 
 
@@ -156,8 +196,23 @@ int index(intnode_t *head, int target)
  * The function terminates (via assert) if the the linked list 
  * pointed to by head is empty.
  */
-void extend(intnode_t *head, intnode_t *other)
+void ext(intnode_t *head, intnode_t *other)
 {
+    assert(head != NULL || other != NULL);
+    
+    intnode_t *curr = head;
+    intnode_t *curr2 = other;
+    
+    while(curr->next != NULL){//iterate through the list
+        curr = curr->next;
+    }
+    head = curr;
+    
+    while(curr2 != NULL){
+        curr->next = push(NULL, curr2->value);
+        curr2 = curr2->next;
+        curr = curr->next;
+    }
 }
 
 // Exercise 5
@@ -173,7 +228,10 @@ void extend(intnode_t *head, intnode_t *other)
  */
 intnode_t *pop(intnode_t *head, int *popped_value)
 {
-    *popped_value = 0;
-    return head;
+    assert(head != NULL);
+    *popped_value = head->value;
+    free(head);
+    intnode_t *newHead = head->next;
+    return newHead;
 }
 
