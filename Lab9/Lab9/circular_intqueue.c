@@ -110,6 +110,24 @@ void intqueue_print(const intqueue_t *queue)
  */
 void intqueue_enqueue(intqueue_t *queue, int value)
 {
+    assert(queue != NULL); //assert that queue is not null
+    
+    intnode_t *newNode = malloc(sizeof(intnode_t));  //new node to be inserted
+    newNode->value = value; //set new node value
+    
+    if(intqueue_size(queue) == 0){ //if queue is empty
+        
+        //node points to itself
+        newNode->next = newNode;
+        queue->rear = newNode;
+        queue->size++;
+        return;
+    }
+    //else node points back to head of the circular linked list and queue points to the rear
+    newNode->next = queue->rear->next;
+    queue->rear->next = newNode;
+    queue->rear = newNode;
+    queue->size++;
 }
 
 /* Copy the value at the front of a queue to the variable pointed to by
@@ -120,8 +138,13 @@ void intqueue_enqueue(intqueue_t *queue, int value)
  */
 _Bool intqueue_front(const intqueue_t *queue, int *element)
 {
-    *element = -1;
-    return false;
+    assert(queue != NULL); //queue not null
+    
+    if(intqueue_size(queue) == 0) //if queue empty
+        return false;
+    
+    *element = queue->rear->next->value; //set the variable to the value of the head
+    return true;
 }
 
 /* Copy the value at the front of a queue to the variable pointed to by
@@ -132,6 +155,15 @@ _Bool intqueue_front(const intqueue_t *queue, int *element)
  */
 _Bool intqueue_dequeue(intqueue_t *queue, int *element)
 {
-    *element = -1;
-    return false;
+    assert(queue != NULL); //queue not null
+    
+    if(intqueue_size(queue) == 0) //if queue empty
+        return false;
+    
+    *element = queue->rear->next->value; //set the variable to value of the head
+    intnode_t *removedNode = queue->rear->next; //create a new node that points to the head
+    queue->rear->next = queue->rear->next->next; //set queue rear next to the new head
+    free(removedNode); //deallocate the head
+    queue->size--; //reduce queue size
+    return true;
 }
