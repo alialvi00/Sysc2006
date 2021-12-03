@@ -2,6 +2,9 @@
  * SYSC 2006 Lab 9
  *
  * circular_intqueue.c - circular linked-list implementation of a queue.
+ *
+ * Student Name: Ali Alvi
+ * Student Number: 101114940
  */
 
 #include <stdlib.h>
