@@ -28,8 +28,10 @@ void test_power(double x, int k)
  */
 void test_num_digits(int k, int expected)
 {
-    /* Finish the implementation of this function. */
-    printf("test_num_digits not yet implemented.\n");
+    printf("Calling num_digits(k, expected) with k = %d, expected = %d\n",k,expected);
+    printf("Expected result: %d\n ", expected);
+    printf("Actual result: %d\n", num_digits(k));
+    
 }
 
 /*
@@ -59,8 +61,17 @@ void print_array(int a[], int n)
  */
 void test_occurrences(int a[], int n, int target, int expected)
 {
-    /* Finish the implementation of this function. */
-    printf("test_occurrences not yet implemented.\n");
+    int length = (sizeof(a)/sizeof(a[0]));
+    int i = 0;
+    printf("Array: ");
+    while(i<length) {
+        printf("%d ", a[i]);
+        i++;
+    }
+    printf("\n");
+    printf("Calling occurrences(a[], n, target, expected) with n = %d, target = %d and expected = %d\n",n,target,expected);
+    printf("Expected result: %d\n ",expected);
+    printf("Actual result: %d\n ",occurrences(a,n,target));
 }
 
 /* Challenge exercise:
@@ -70,8 +81,9 @@ void test_occurrences(int a[], int n, int target, int expected)
  */
 void test_power2(double x, int k)
 {
-    /* Finish the implementation of this function. */
-    printf("test_power2 not yet implemented.\n");
+    printf("Calling power(x, k) with x = %.2f, k = %d\n", x, k);
+    printf("Expected result: %.2f\n", pow(x, k));
+    printf("Actual result: %.2f\n\n", power2(x, k));
 }
 
 void test_exercise_1(void)
