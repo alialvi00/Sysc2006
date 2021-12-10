@@ -93,11 +93,68 @@ void print_list(intnode_t *head)
 
 intnode_t *add(intnode_t *head, int elem, int index)
 {
-    return head;
+    int currentIndex = 0; //index for traversing through linked list
+    
+    if(length(head) == 0){ //if list is empty
+        assert(index >= 0 && index <= length(head)); //make sure index is valid
+        if(index == 0){ //if index is 0
+            return push(head, elem); //add to the front of the linked list
+        }
+    }
+    else{ //if list is not empty
+        assert(index >= 0 && index <= length(head)); //make sure index is valid
+        
+        if(index == 0){ //if index is 0 add to the front of the list
+            head = push(head, elem);
+        }
+        else if(index == length(head)){ // if index is the position of last node
+            intnode_t *newNode = malloc(sizeof(intnode_t)); //make a new node
+            assert(newNode != NULL);
+            intnode_t *currentNode = head; //make a current node that points to head
+            newNode->value = elem; //set the new node's value
+            newNode->next = NULL; //set the new nodes next position as NULL by default
+            
+            while(currentNode->next != NULL){ //traverse till the end of the list
+                currentNode = currentNode->next;
+            }
+            currentNode->next = newNode; //set currentnode's next node as new node
+        }
+        else if(index >= 0 && index <= length(head)){ //if index is not last position and is within the list
+            intnode_t *currentNode = head; //create a currentNode that points to head
+            
+            while (currentIndex != index-1) { //traverse through the list until you reach the node that comes before index
+                currentNode = currentNode->next;
+                currentIndex++;
+            }
+            intnode_t *newNode = malloc(sizeof(intnode_t)); //create a new node
+            assert(newNode != NULL);
+            newNode->value = elem;
+            newNode->next = NULL;
+            
+            newNode->next = currentNode->next; //set the next node of new node the same as next node of the previous node
+            currentNode->next = newNode; //set the next node of the previous node as the new node
+        }
+    }
+    return head; //return the head of the list
 }
 
 // Exercise 2
 
 void every_other(intnode_t *head)
 {
+    if(head == NULL || length(head) == 1) //if list is empty
+        return;
+    
+    intnode_t *otherNode = head; //create a pointer node to the first node
+    intnode_t *evenNode = head->next; //create a pointer node to the second node which is also the node we have to remove
+    
+    while(otherNode != NULL && evenNode != NULL){ //while other and even node dont become NULL aka point to the last node
+        otherNode->next = evenNode->next; //other node's next node should point to the even node's next node
+        free(evenNode); //delete the even node
+        otherNode = evenNode->next; //set the other node now as even node's next one
+        
+        if(otherNode != NULL) //if other node is not null aka didnt finish iterating the list
+            evenNode = otherNode->next; //set the next node of other's as even node
+        //if the next node of other node is null, while loop will exit and the job is done
+    }
 }
