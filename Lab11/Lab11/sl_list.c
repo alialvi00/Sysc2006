@@ -1,4 +1,7 @@
-/* SYSC 2006 Lab 11 
+/* SYSC 2006 Lab 11
+ *
+ * Student Name: Ali Alvi
+ * Student Number: 101114940
  */
 
 #include <assert.h>             // assert
